@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mira and the Great Dimming - A Chip Quest</title>
+<meta name="description" content="One evening every chip in the world forgot how to think. Join Mira and Sili on an interactive quest through six realms - and use what you learn to bring the light back. For ages 14+.">
+<link rel="stylesheet" href="quest.css">
+</head>
+<body>
+<main class="card">
+  <header class="hero">
+    <p class="mode-switch"><a href="index.html">&larr; The Thinking Sand (learning mode)</a></p>
+    <h1>Mira and the Great Dimming</h1>
+    <p class="hero-fact">An interactive chip quest for ages 14+ - story mode companion to The Thinking Sand</p>
+    <p class="intro">One evening every chip in the world forgot how to think. A girl, a glowing grain of sand, six realms and one Lighthouse: learn what the world runs on, and use it to bring the light back.</p>
+  </header>
+
+  <p>One October evening, every chip in the world forgot how to think. The lights did not die - the <em>decisions</em> did. Trains hesitated, gates froze, phones went silent. Grown-ups called it the Dimming, and waited for someone to fix it.</p>
+  <p>In her grandmother's kitchen, a girl named Mira found one thing still glowing: a single grain of sand in a jar. It was Sili, and it spoke: <em>"The world can be relit - but only by someone who understands it. Will you learn?"</em></p>
+
+  <div class="scene" id="sceneHero"></div>
+
+  <p>Six realms stand between Mira and the Lighthouse. Each hides a <strong>Spark of understanding</strong>. Learn what each realm teaches, earn its spark, and relight the world.</p>
+
+  <nav class="index" aria-label="Quest map">
+    <a class="chip" href="#city">I &middot; City of Sleeping Machines</a>
+    <a class="chip" href="#caves">II &middot; The Crystal Caves</a>
+    <a class="chip" href="#forest">III &middot; The Switchwood</a>
+    <a class="chip" href="#skyfab">IV &middot; The Sky Fab</a>
+    <a class="chip" href="#library">V &middot; Library of Minds</a>
+    <a class="chip" href="#woven">VI &middot; The Woven World</a>
+    <a class="chip" href="#lighthouse">The Lighthouse</a>
+  </nav>
+
+  <div class="quest-sparks" id="sparkBar" aria-label="Sparks collected"></div>
+  <p class="verdict" id="sparkCount">0 of 6 sparks lit</p>
+
+  <section class="quest-realm quest-r1">
+    <span class="anchor" id="city"></span>
+    <p class="quest-kicker">Realm I</p>
+    <h2 class="quest-title">The City of Sleeping Machines</h2>
+    <div class="scene" id="sceneCity"></div>
+    <p class="story">The Dimming did not take the electricity - it took the <em>thinking</em>. Machines still hummed, but nothing inside them decided anything any more. At the hawker centre, an uncle stared at his rice cooker like it had betrayed him. <em>"Chips are not rare treasures, Mira,"</em> said Sili. <em>"They are the city's thoughts. Find where they sleep."</em></p>
+    <p class="story">Tap each machine to wake its chip and see what it was quietly doing all along.</p>
+    <div class="huntgrid" id="cityGrid"></div>
+    <p class="score" id="cityScore"></p>
+    <div class="quest-earn" id="earn-sight" hidden><span class="quest-earn-ico">👁️</span><span>Spark of Sight earned - chips are everywhere. Sili glows a little brighter.</span></div>
+  </section>
+
+  <section class="quest-realm quest-r2">
+    <span class="anchor" id="caves"></span>
+    <p class="quest-kicker">Realm II</p>
+    <h2 class="quest-title">The Crystal Caves</h2>
+    <div class="scene" id="sceneCaves"></div>
+    <p class="story">Deep under the city, the Crystal Caves had gone quiet. An old keeper of the caves lit Mira's way down. <em>"Pure crystal is honest but stubborn,"</em> Sili said. <em>"To make it sing, you must tune it - a pinch of another element. This is doping, the first spell of every chip-maker."</em></p>
+    <p class="story">Choose a dopant, then tap atoms in the crystal to replace them.</p>
+    <div class="dopick">
+      <button type="button" id="pickP" class="dopant n picked">Phosphorus<br><small>gives a spare electron</small></button>
+      <button type="button" id="pickB" class="dopant p">Boron<br><small>leaves a hole</small></button>
+    </div>
+    <div class="lattice" id="lattice"></div>
+    <p class="verdict" id="dopeVerdict">The cave crystal is pure silicon - beautiful, orderly, and almost silent. It barely conducts.</p>
+    <button type="button" class="mini" id="dopeReset">Start over with pure crystal</button>
+    <h3>The Door That Only Opens One Way</h3>
+    <p class="story">At the caves' end stood a crystal door - P-type pressed against N-type. <em>"A diode,"</em> whispered Sili. <em>"Current crosses in one direction only. Flip the battery and see."</em></p>
+    <div id="diodeArt"></div>
+    <button type="button" class="big-toggle" id="diodeBtn">Flip the battery</button>
+    <div class="quest-check"><span id="chkDope">&#9675; tune at least 3 atoms</span><span id="chkDoor">&#9675; open the one-way door</span></div>
+    <div class="quest-earn" id="earn-flow" hidden><span class="quest-earn-ico">🌊</span><span>Spark of Flow earned - doping steers current. Sili glows a little brighter.</span></div>
+  </section>
+
+  <section class="quest-realm quest-r3">
+    <span class="anchor" id="forest"></span>
+    <p class="quest-kicker">Realm III</p>
+    <h2 class="quest-title">The Switchwood</h2>
+    <div class="scene" id="sceneForest"></div>
+    <p class="story">The Switchwood was a forest of living switches - billions of transistors, each one opened or closed by electricity itself, no moving parts. Moths of light drifted between the trees, waiting to be let through. <em>"A switch alone is simple,"</em> said Sili. <em>"But teach switches to work together and they can make decisions."</em></p>
+    <p class="story">Two fireflies guard each gate. Choose a gate, light the fireflies, and find the combination that lets a moth through. <span id="gateStory"></span></p>
+    <div class="dopick" id="gatePick" role="group" aria-label="Choose a gate"></div>
+    <div class="io">
+      <button type="button" class="io-btn" id="inA">A dark</button>
+      <button type="button" class="io-btn" id="inB">B dark</button>
+      <span class="arrow">&rarr;</span>
+      <span class="gatebox" id="gateBox">AND</span>
+      <span class="arrow">&rarr;</span>
+      <span class="out" id="gateOut">moth waits</span>
+    </div>
+    <table class="truth" id="truthTable" aria-label="Truth table for the chosen gate"></table>
+    <p class="verdict">Every app, every game, every AI answer is oceans of these tiny decisions, made billions of times a second.</p>
+    <div class="quest-earn" id="earn-logic" hidden><span class="quest-earn-ico">🗝️</span><span>Spark of Logic earned - switches make decisions. Sili glows a little brighter.</span></div>
+  </section>
+
+  <section class="quest-realm quest-r4">
+    <span class="anchor" id="skyfab"></span>
+    <p class="quest-kicker">Realm IV</p>
+    <h2 class="quest-title">The Sky Fab</h2>
+    <div class="scene" id="sceneFab"></div>
+    <p class="story">High above the clouds floated the Sky Fab, silent since the Dimming. A cloud engineer in a white coat waved Mira aboard. <em>"A chip is not built - it is printed,"</em> said Sili, <em>"in the most precise factory humanity has ever made. Walk the six stations, and the fab will remember you."</em></p>
+    <div id="fabArt"></div>
+    <p class="stepline" id="fabStepLine"></p>
+    <p class="stepbody" id="fabStepBody"></p>
+    <div class="stepnav">
+      <button type="button" class="mini" id="fabBack">Back</button>
+      <span class="dots" id="fabDots"></span>
+      <button type="button" class="mini" id="fabNext">Next station</button>
+    </div>
+    <h3>The Shrinking Spell</h3>
+    <p class="story">In 1965, Gordon Moore foretold that transistors per chip would double about every two years. The spell held for half a century. Drag through time:</p>
+    <input type="range" id="mooreRange" min="0" max="7" value="0" step="1" aria-label="Year slider">
+    <div class="moorecard">
+      <p class="mooreyear" id="mooreYear">1971</p>
+      <p class="moorechip" id="mooreChip">Intel 4004</p>
+      <div class="moorebar"><span id="mooreFill"></span></div>
+      <p class="moorecount" id="mooreCount">2,300 transistors</p>
+    </div>
+    <div class="quest-earn" id="earn-craft" hidden><span class="quest-earn-ico">🏔️</span><span>Spark of Craft earned - chips are printed in layers. Sili glows a little brighter.</span></div>
+  </section>
+
+  <section class="quest-realm quest-r5">
+    <span class="anchor" id="library"></span>
+    <p class="quest-kicker">Realm V</p>
+    <h2 class="quest-title">The Library of a Thousand Minds</h2>
+    <div class="scene" id="sceneLibrary"></div>
+    <p class="story">The library's million books lay scattered, and only sorting them could wake the Great Index. Two helpers waited: <em>the Scholar</em> - one brilliant mind, fast at any single task - and <em>the Choir</em> - a hundred young readers, each slower, all working side by side.</p>
+    <div class="callout"><strong>Before you race:</strong> this race uses invented ratios to show a pattern - it is not a benchmark. Real CPUs have a small number of powerful cores, real GPUs have thousands of simpler ones, and which chip wins always depends on the chip and the job.</div>
+    <p class="racetask">The task: shelve 64 identical piles of books - the same simple job, repeated. AI maths is exactly this kind of work: one tiny operation, repeated trillions of times.</p>
+    <p class="lanelabel"><span>The Scholar (CPU) - 2 piles at a time</span><span id="cpuCount">0/64</span></p>
+    <div class="tiles" id="cpuTiles"></div>
+    <p class="lanelabel"><span>The Choir (GPU) - 32 piles at a time</span><span id="gpuCount">0/64</span></p>
+    <div class="tiles" id="gpuTiles"></div>
+    <button type="button" class="big-toggle" id="raceBtn">Start the shelving race</button>
+    <p class="verdict" id="raceVerdict" hidden>Same shelves, different strengths. The Scholar would win at one tricky, twisting task; the Choir wins when the task is the same simple move repeated massively - which is why AI runs on GPUs. And remember: the ratios were invented for teaching.</p>
+    <div class="quest-earn" id="earn-scale" hidden><span class="quest-earn-ico">📚</span><span>Spark of Scale earned - parallel minds power AI. Sili glows a little brighter.</span></div>
+  </section>
+
+  <section class="quest-realm quest-r6">
+    <span class="anchor" id="woven"></span>
+    <p class="quest-kicker">Realm VI</p>
+    <h2 class="quest-title">The Woven World</h2>
+    <div class="scene" id="sceneWoven"></div>
+    <p class="story">At the world's edge Mira saw it: the light was never made in one place. It was <em>woven</em> - a single chip crossing more than 70 borders and passing through over 1,000 steps before it reached her. <em>"No country can weave this alone,"</em> said Sili. <em>"That is the world's strength, and its fragility."</em> Follow the thread - tap each stamp:</p>
+    <div class="stamps" id="stamps"></div>
+    <div class="passcard">
+      <p class="passstage" id="passStage"></p>
+      <p class="passbody" id="passBody"></p>
+    </div>
+    <p class="score" id="passScore"></p>
+    <div class="quest-earn" id="earn-woven" hidden><span class="quest-earn-ico">🧵</span><span>Spark of Connection earned - no one builds alone. Sili glows a little brighter.</span></div>
+  </section>
+
+  <section class="quest-realm quest-fin">
+    <span class="anchor" id="lighthouse"></span>
+    <p class="quest-kicker">Finale</p>
+    <h2 class="quest-title">The Lighthouse</h2>
+    <div class="scene" id="sceneLighthouse"></div>
+    <p class="story">At the top of the Lighthouse, the Keeper of the Last Lamp barred the way. <em>"The lamp answers only understanding,"</em> she said. <em>"Five riddles. Every wrong guess teaches - the door does not punish trying."</em></p>
+    <div class="quest-lamps" id="lamps"></div>
+    <p class="verdict" id="lampCount">0 of 5 lamps lit</p>
+    <div id="riddles"></div>
+    <div class="quest-dawn" id="dawn" hidden>
+      <h3>The world relights.</h3>
+      <p>One by one the windows woke, the gates swung open, the trains remembered their way. Sili's glow softened. <em>"You see now,"</em> it said. <em>"The light was never in the machines. It was in understanding them - and that is a light no Dimming can take."</em> Mira smiled. She had saved the world the only way anyone ever does: by learning how it works.</p>
+    </div>
+  </section>
+
+  <h2>What Mira discovered</h2>
+  <ol class="discussion">
+    <li><strong>Sight</strong> - chips are everywhere, in dozens of kinds, quietly running the world.</li>
+    <li><strong>Flow</strong> - pure silicon barely conducts; doping tunes it into N-type and P-type, and where they meet, current passes one way only.</li>
+    <li><strong>Logic</strong> - transistors are switches flipped by electricity itself; wired together they become gates, and gates become every decision a computer makes.</li>
+    <li><strong>Craft</strong> - chips are printed in layers with light, in the most precise factories ever built; Moore's law drove the shrinking for fifty years.</li>
+    <li><strong>Scale</strong> - AI needs the same simple operation repeated massively, which is why it runs on thousands of small cores working side by side.</li>
+    <li><strong>Connection</strong> - one chip crosses 70+ borders and 1,000+ steps; no country builds alone, which is both the industry's strength and its fragility.</li>
+  </ol>
+
+  <h2>Keep the story going</h2>
+  <ol class="discussion">
+    <li>Mira saved the world by understanding it. What system near you - school, transport, money - would fail in a new Dimming, and who understands it well enough to save it?</li>
+    <li>The Keeper's lamp "answered only understanding". Is that true of real power too - should you have to understand a technology to be trusted with it?</li>
+    <li>The Woven World is strong because it is shared, and fragile because it is shared. If you were Singapore, would you weave deeper into it or learn to weave alone?</li>
+    <li>The Choir beat the Scholar at shelving, but the Scholar would win at one twisting task. When is a crowd better than a genius - in machines, and in people?</li>
+    <li>Rapidus is spending about US$15 billion to rejoin the frontier. If you ran it, how would you persuade customers to trust a newcomer?</li>
+  </ol>
+
+  <div class="callout honesty"><strong>Where the story simplified:</strong> Mira, Sili and the Dimming are invented, and the animations are cartoons, not physics simulations. Real transistors are intricate 3D structures tens of nanometres across; real current is drifting electrons and holes, not marching dots; and chip-making involves hundreds of steps compressed here into six stations. The transistor counts, market shares and national figures are real and sourced below, checked 24 October 2026 - but industry numbers move fast, so treat them as a snapshot.</div>
+
+  <h2>Sources and acknowledgement</h2>
+  <p>This story was inspired by the book <strong>半導體超圖解：寫給未來人才的科技必修課</strong> (by InfoVisual Research Institute, supervised by SEMI Japan, Chinese edition 漫遊者文化, May 2026, ISBN 9786264092173 - details verified against books.com.tw) and by <strong>半導體的未來</strong> (The Future of Semiconductors, 人人伽利略特刊2, 人人出版, Taiwan). Both are recommended for further reading. All story, text, activities and illustrations here are original creations for this site; nothing from either book's artwork or text is reproduced.</p>
+  <ul class="sources">
+    <li>Singapore EDB - Singapore's share of world chips and chip equipment: <a href="https://www.edb.gov.sg/en/our-industries/advanced-manufacturing.html">edb.gov.sg/en/our-industries/advanced-manufacturing.html</a></li>
+    <li>ASML - EUV lithography, 13.5 nm wavelength, sole supplier: <a href="https://www.asml.com/en/products/euv-lithography-systems">asml.com/en/products/euv-lithography-systems</a></li>
+    <li>TrendForce, Sep 2026 - TSMC about 72.5% of foundry revenue, Q2 2026: trendforce.com</li>
+    <li>SEMI and DHL, "Resilience of the Semiconductor Supply Chain" - 1,000+ steps, 70+ border crossings per chip</li>
+    <li>Reuters, 23 Oct 2026 - Rapidus: roughly US$15B in government backing, 2nm mass production targeted for the second half of 2027 in Hokkaido</li>
+  </ul>
+  <p>A story-mode companion to <a href="index.html"><strong>The Thinking Sand</strong></a> - built for secondary-school technology literacy, bridging Computing, Physics and Economics. Share it freely with your class.</p>
+
+  <footer class="closing">Interactive story quest &middot; facts checked 24 Oct 2026 &middot; nothing here is collected, tracked or sent anywhere.</footer>
+</main>
+<script src="quest.js"></script>
+</body>
+</html>
