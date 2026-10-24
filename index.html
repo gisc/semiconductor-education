@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Thinking Sand - An Interactive Chip Adventure</title>
+<meta name="description" content="Every smart thing around you began as ordinary sand. An interactive, tap-and-play journey from silicon physics to AI hardware and the global chip chessboard, for ages 14+.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card">
+  <header class="hero">
+    <h1>The Thinking Sand</h1>
+    <p class="hero-fact">An interactive chip adventure for ages 14+</p>
+    <p class="intro">Every smart thing around you - your phone, the MRT gates, the AI that answers your questions - began as ordinary sand. This is the story of how we taught sand to think, told with your hands: tap, flip, dope, switch and race your way through it.</p>
+  </header>
+
+  <!-- Hero artwork: from sand to thinking chip (original illustration) -->
+  <figure class="heroart" role="img" aria-label="Grains of sand become a silicon wafer full of colourful chips, and one chip lights up with ideas">
+    <svg viewBox="0 0 380 260" aria-hidden="true">
+      <defs>
+        <radialGradient id="waferSheen" cx="35%" cy="30%" r="80%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+          <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#e8c170"/>
+          <stop offset="100%" stop-color="#e8c170" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <g>
+        <circle cx="22" cy="196" r="5" fill="#d9b06a"/><circle cx="38" cy="206" r="4" fill="#c99b4f"/>
+        <circle cx="16" cy="214" r="4" fill="#e3c07c"/><circle cx="34" cy="188" r="3" fill="#c99b4f"/>
+        <circle cx="50" cy="197" r="3" fill="#d9b06a"/><circle cx="26" cy="226" r="3" fill="#b98d45"/>
+        <text x="30" y="248" text-anchor="middle" font-size="11" fill="#8a6b33">sand</text>
+      </g>
+      <polygon points="58,192 78,186 78,216 58,222" fill="url(#beamGrad)"/>
+      <circle cx="175" cy="125" r="120" fill="#d7dde3"/>
+      <g id="waferDies"></g>
+      <circle cx="175" cy="125" r="120" fill="url(#waferSheen)"/>
+      <circle cx="175" cy="125" r="120" fill="none" stroke="#9aa7b1" stroke-width="2"/>
+      <text x="175" y="252" text-anchor="middle" font-size="11" fill="#5a6670">one wafer, hundreds of chips</text>
+      <g>
+        <rect x="318" y="88" width="52" height="52" rx="6" fill="#251f21"/>
+        <rect x="330" y="100" width="28" height="28" rx="3" fill="#3d6e5f"/>
+        <rect x="312" y="94" width="6" height="4" fill="#c0bebf"/><rect x="312" y="106" width="6" height="4" fill="#c0bebf"/>
+        <rect x="312" y="118" width="6" height="4" fill="#c0bebf"/><rect x="312" y="130" width="6" height="4" fill="#c0bebf"/>
+        <rect x="370" y="94" width="6" height="4" fill="#c0bebf"/><rect x="370" y="106" width="6" height="4" fill="#c0bebf"/>
+        <rect x="370" y="118" width="6" height="4" fill="#c0bebf"/><rect x="370" y="130" width="6" height="4" fill="#c0bebf"/>
+        <circle cx="344" cy="114" r="7" fill="#ffd966" class="spark"/>
+        <text x="344" y="162" text-anchor="middle" font-size="11" fill="#3d6e5f">taught to think</text>
+      </g>
+      <polygon points="297,108 316,114 316,136 297,142" fill="url(#beamGrad)"/>
+    </svg>
+  </figure>
+
+  <nav class="index" aria-label="Chapters">
+    <button type="button" data-goto="everywhere">1 &middot; Chips are everywhere</button>
+    <button type="button" data-goto="sand">2 &middot; Magic sand</button>
+    <button type="button" data-goto="switch">3 &middot; The tiny switch</button>
+    <button type="button" data-goto="printing">4 &middot; Printing the invisible</button>
+    <button type="button" data-goto="ai">5 &middot; Why AI is hungry</button>
+    <button type="button" data-goto="chessboard">6 &middot; The chip chessboard</button>
+    <button type="button" data-goto="checkpoint">Checkpoint quiz</button>
+  </nav>
+
+  <!-- CHAPTER 1 -->
+  <section id="everywhere">
+    <h2>Chapter 1 &middot; Chips are everywhere</h2>
+    <p>Here is a strange thought: you probably touched a hundred computers before breakfast. Not computers that look like computers - chips so small and cheap that we hide them in everything.</p>
+    <p>Hunt for the chips hiding in everyday Singapore life. Open each object to look inside.</p>
+    <div class="huntgrid" id="chipHunt"></div>
+    <p class="score" id="huntScore">0 of 6 objects opened</p>
+    <h3>Meet the family</h3>
+    <p class="sub">Not all chips think alike</p>
+    <p>Open a few of those objects and you will not find one kind of chip, but a whole family with different jobs. Tap each member:</p>
+    <div class="huntgrid" id="chipFamily"></div>
+    <p class="verdict">Same silicon, different talents. A phone needs every member of the family - which is why chip-making is really many industries at once.</p>
+    <aside class="callout note">
+      <strong>Think about it</strong>
+      <p>Which object surprised you most? If every chip in your home vanished tonight, what would still work in the morning?</p>
+    </aside>
+  </section>
+
+  <!-- CHAPTER 2 -->
+  <section id="sand">
+    <h2>Chapter 2 &middot; The magic sand</h2>
+    <p>Chip-making starts with quartz - the same mineral as beach sand - purified until only one atom in a billion is out of place. The result is silicon, a semiconductor: it conducts electricity far better than glass, far worse than copper. That awkward in-betweenness is exactly what makes it useful, because we can tune it.</p>
+    <p>The tuning trick is called doping: mixing in a pinch of another element. Try it yourself. Pick a dopant, then tap atoms in the crystal to replace them.</p>
+    <div class="dopick" role="group" aria-label="Choose a dopant">
+      <button type="button" id="pickP" class="dopant n picked">Phosphorus<br><small>gives a spare electron</small></button>
+      <button type="button" id="pickB" class="dopant p">Boron<br><small>leaves a hole</small></button>
+    </div>
+    <div class="lattice" id="lattice" role="group" aria-label="Silicon crystal - tap an atom to replace it"></div>
+    <p class="verdict" id="dopeVerdict">Pure silicon - a well-behaved crystal that barely conducts.</p>
+    <button type="button" class="mini" id="dopeReset">Start over with pure silicon</button>
+    <h3>The one-way street</h3>
+    <p class="sub">Where P meets N</p>
+    <p>Press P-type against N-type and something magical happens: current can cross the junction in one direction only. That device is a diode - a one-way valve for electricity. Flip the battery below to see it.</p>
+    <div class="diode">
+      <svg viewBox="0 0 320 150" class="art" role="img" aria-label="A diode demonstration">
+        <rect x="70" y="45" width="80" height="60" rx="6" fill="#f6b26b"/>
+        <rect x="150" y="45" width="80" height="60" rx="6" fill="#6fa8dc"/>
+        <text x="110" y="80" text-anchor="middle" font-size="18" font-weight="bold" fill="#7a4a12">P</text>
+        <text x="190" y="80" text-anchor="middle" font-size="18" font-weight="bold" fill="#173f63">N</text>
+        <line x1="10" y1="75" x2="70" y2="75" stroke="#585254" stroke-width="3"/>
+        <line x1="230" y1="75" x2="310" y2="75" stroke="#585254" stroke-width="3"/>
+        <circle id="batLeft" cx="20" cy="75" r="10" fill="#73a89a"/>
+        <text id="batLeftSign" x="20" y="80" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">+</text>
+        <circle id="batRight" cx="300" cy="75" r="10" fill="#ed313e"/>
+        <text id="batRightSign" x="300" y="80" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">&minus;</text>
+        <text x="160" y="30" text-anchor="middle" font-size="12" fill="#585254">P meets N: a one-way junction</text>
+        <g id="diodeFlow">
+          <circle class="flowdot" style="animation-delay:0s" cx="40" cy="75" r="5" fill="#251f21"/>
+          <circle class="flowdot" style="animation-delay:0.7s" cx="40" cy="75" r="5" fill="#251f21"/>
+          <circle class="flowdot" style="animation-delay:1.4s" cx="40" cy="75" r="5" fill="#251f21"/>
+        </g>
+        <text id="diodeMsg" x="160" y="130" text-anchor="middle" font-size="13" fill="#3d6e5f">Current flows - the bulb lights up</text>
+      </svg>
+      <div class="bulbrow">
+        <span class="bulb on" id="diodeBulb" aria-hidden="true">&#128161;</span>
+        <button type="button" class="mini" id="diodeFlip">Flip the battery</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 3 -->
+  <section id="switch">
+    <h2>Chapter 3 &middot; The tiny switch</h2>
+    <p>In 1947, at Bell Labs in New Jersey, three scientists built the first transistor: a switch with no moving parts, opened and closed purely by electricity. It won them the Nobel Prize and quietly rewired the future. Every phone, satellite and AI since is, at bottom, a colossal crowd of these switches.</p>
+    <p class="keysentence">A transistor is a tap for electricity - and electricity itself is the hand that turns it.</p>
+    <div class="transistor">
+      <svg viewBox="0 0 320 170" class="art" role="img" aria-label="A transistor switch demonstration">
+        <rect x="40" y="60" width="240" height="46" rx="8" fill="#6fa8dc" opacity="0.35"/>
+        <rect x="40" y="60" width="70" height="46" rx="8" fill="#6fa8dc"/>
+        <rect x="210" y="60" width="70" height="46" rx="8" fill="#6fa8dc"/>
+        <text x="75" y="88" text-anchor="middle" font-size="12" fill="#173f63" font-weight="bold">SOURCE</text>
+        <text x="245" y="88" text-anchor="middle" font-size="12" fill="#173f63" font-weight="bold">DRAIN</text>
+        <rect id="gateRect" x="130" y="30" width="60" height="18" rx="4" fill="#c0bebf"/>
+        <text x="160" y="43" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">GATE</text>
+        <line x1="160" y1="48" x2="160" y2="60" stroke="#585254" stroke-width="2"/>
+        <g id="transFlow" style="display:none">
+          <circle class="flowlong" style="animation-delay:0s" cx="110" cy="83" r="5" fill="#251f21"/>
+          <circle class="flowlong" style="animation-delay:0.45s" cx="110" cy="83" r="5" fill="#251f21"/>
+          <circle class="flowlong" style="animation-delay:0.9s" cx="110" cy="83" r="5" fill="#251f21"/>
+          <circle class="flowlong" style="animation-delay:1.35s" cx="110" cy="83" r="5" fill="#251f21"/>
+        </g>
+        <text id="transState" x="160" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#585254">OFF - no current: a 0</text>
+        <text x="160" y="156" text-anchor="middle" font-size="11" fill="#585254">No moving parts. It can switch billions of times per second.</text>
+      </svg>
+      <button type="button" class="big-toggle" id="transToggle" aria-pressed="false">Gate OFF - tap to switch</button>
+    </div>
+    <p>One switch is a bit. Wire switches together and you get logic gates - tiny decision-makers. AND, OR, XOR, NAND: from these, engineers build adders, memory and entire processors. Everything any computer has ever done reduces to these few moves. Play with them:</p>
+    <div class="logic">
+      <div class="dopick" role="group" aria-label="Choose a gate" id="gatePick"></div>
+      <div class="io">
+        <button type="button" class="io-btn" id="inA">A: 0</button>
+        <span class="arrow">&rarr;</span>
+        <span class="gatebox" id="gateName">AND</span>
+        <span class="arrow">&rarr;</span>
+        <span class="out" id="gateOut">0</span>
+      </div>
+      <div class="io">
+        <button type="button" class="io-btn" id="inB">B: 0</button>
+      </div>
+      <p class="verdict" id="gateHint"></p>
+      <table class="truth">
+        <thead><tr><th>A</th><th>B</th><th>Output</th></tr></thead>
+        <tbody id="truthBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CHAPTER 4 -->
+  <section id="printing">
+    <h2>Chapter 4 &middot; Printing the invisible</h2>
+    <p>A leading-edge chip holds tens of billions of transistors, each far smaller than a virus. No human hand could build one. Instead, chips are printed, in factories called fabs, using the most precise manufacturing process humanity has ever invented. Walk through it:</p>
+    <div class="fab">
+      <div id="fabArt"></div>
+      <p class="stepline" id="fabStepLine"></p>
+      <p class="stepbody" id="fabStepBody"></p>
+      <div class="stepnav">
+        <button type="button" class="mini" id="fabBack">Back</button>
+        <span class="dots" id="fabDots" aria-hidden="true"></span>
+        <button type="button" class="mini" id="fabNext">Next</button>
+      </div>
+    </div>
+    <aside class="callout note">
+      <strong>The price of precision</strong>
+      <p>A single leading-edge fab can cost over US$20 billion to build, and the EUV printers inside it cost hundreds of millions each. Only a handful of companies on Earth can afford to play at the frontier.</p>
+    </aside>
+    <h3>The shrinking act</h3>
+    <p class="sub">Moore's law</p>
+    <p>In 1965, Gordon Moore noticed that the number of transistors engineers could squeeze onto a chip was doubling roughly every two years. The trend held for half a century and remade the world. Drag the slider through time:</p>
+    <div class="moore">
+      <input type="range" id="mooreRange" min="0" max="7" value="0" step="1" aria-label="Travel through chip history">
+      <div class="moorecard">
+        <p class="mooreyear" id="mooreYear">1971</p>
+        <p class="moorechip" id="mooreChip">Intel 4004</p>
+        <div class="moorebar"><span id="mooreFill"></span></div>
+        <p class="moorecount" id="mooreCount">2,300 transistors</p>
+      </div>
+      <p class="verdict">In 1971, 2,300 transistors filled a chip. Today one AI chip holds about 90 million times more - yet each transistor is far cheaper and smaller. That is Moore's law in action.</p>
+    </div>
+  </section>
+
+  <!-- CHAPTER 5 -->
+  <section id="ai">
+    <h2>Chapter 5 &middot; Why AI is hungry for chips</h2>
+    <p>When an AI writes you a poem, what is it actually doing? Mostly one boring thing, repeated beyond imagination: multiply, add, multiply, add - trillions of times, in huge grids of numbers called matrices.</p>
+    <p>A modern CPU has a handful of very powerful cores, each racing through its work and clever enough to juggle several tasks at once. A GPU takes the opposite bet: thousands of simpler cores doing the same small job side by side. Neither is simply faster - they win at different work. Jobs that are the same tiny operation repeated massively, like AI matrix maths, suit the crowd of simple cores; work full of different steps and decisions suits the powerful few. Watch the pattern in a race - using made-up numbers chosen to show the pattern, not to benchmark real chips: real CPUs have a small number of cores, real GPUs have thousands, and every chip and workload is different.</p>
+    <div class="race">
+      <p class="racetask">The task: 64 multiplications - a tiny taste of the trillions inside one AI answer.</p>
+      <div class="lanelabel"><span>CPU - a few powerful cores (shown doing 2 at a time)</span><span id="cpuCount">0/64</span></div>
+      <div class="tiles" id="cpuTiles"></div>
+      <div class="lanelabel"><span>GPU - thousands of simpler cores (shown doing 32 at a time)</span><span id="gpuCount">0/64</span></div>
+      <div class="tiles" id="gpuTiles"></div>
+      <button type="button" class="big-toggle on" id="raceBtn">Start the race</button>
+      <p class="verdict" id="raceVerdict" style="display:none">Same answer, different strengths. And remember the ratios were invented for teaching: which chip wins always depends on the chip and the job.</p>
+    </div>
+    <p>This hunger reshaped the industry: AI chips now also need ultra-fast memory stacked beside them (HBM) and advanced packaging that fuses several chips into one. The race for better AI is, physically, a race for better chips - and for the fabs that make them.</p>
+  </section>
+
+  <!-- CHAPTER 6 -->
+  <section id="chessboard">
+    <h2>Chapter 6 &middot; The chip chessboard</h2>
+    <p>No country can build a modern chip alone. Design, tools, manufacturing and packaging are scattered across the planet - which makes chips a matter of economics, security and geopolitics, not just engineering. Follow one chip's passport:</p>
+    <div class="passport">
+      <div class="stamps" role="group" aria-label="Journey stages" id="stamps"></div>
+      <div class="passcard">
+        <p class="passstage" id="passStage"></p>
+        <p class="passbody" id="passBody"></p>
+      </div>
+      <p class="verdict">A supply-chain study by SEMI and DHL counted more than 1,000 processing steps and over 70 border crossings behind a single modern chip. What happens if just one stop closes?</p>
+    </div>
+    <aside class="callout warning">
+      <strong>Why governments care</strong>
+      <p>During the 2020-2022 chip shortage, car factories around the world stood still for want of chips costing a few dollars. Since then, the US, Europe, Japan, India and others have poured tens of billions into building fabs at home. Chips are now treated like oil once was: a resource worth planning a nation around.</p>
+    </aside>
+    <aside class="callout note">
+      <strong>The challenger: Japan's big bet</strong>
+      <p>Japan once made over half the world's chips, then fell behind. In 2022 its government and biggest companies launched Rapidus - a national comeback attempt backed by roughly US$15 billion of public money, aiming to mass-produce advanced 2-nanometre chips in Hokkaido from 2027. As of late 2026 the technology is on track, but the hardest question remains open: who will actually buy the chips? Catching up is not only an engineering problem.</p>
+    </aside>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="checkpoint">
+    <h2>Checkpoint quiz</h2>
+    <p>Five questions. No pressure - every wrong answer explains itself.</p>
+    <div id="quiz"></div>
+    <p class="finalscore" id="quizScore" style="display:none"></p>
+  </section>
+
+  <!-- DISCUSSION -->
+  <section>
+    <h2>Keep arguing about it</h2>
+    <ol class="discuss">
+      <li>If one company makes most of the world's most advanced chips, is that a triumph of specialisation or a danger to everyone? What would you do if you were a small country like Singapore?</li>
+      <li>Moore's law is slowing as transistors approach the size of atoms. Should we keep shrinking - or rethink how computers are designed altogether?</li>
+      <li>An AI data centre can use as much electricity as a small town. Who should get to decide how the world's chip-making and energy capacity is used?</li>
+      <li>Chips designed in one country, printed with machines from another, made in a third, used everywhere. Who, if anyone, "owns" a chip?</li>
+      <li>Japan is spending about US$15 billion to catch TSMC at 2 nanometres. If you ran Rapidus, how would you persuade customers to trust a newcomer?</li>
+    </ol>
+  </section>
+
+  <!-- HONESTY BOX -->
+  <section>
+    <h2>Honesty box</h2>
+    <aside class="callout note">
+      <strong>Where we simplified</strong>
+      <p>Our animations are cartoons, not physics simulations. Real transistors are intricate 3D structures tens of nanometres across; real current is drifting electrons and holes, not marching dots; and chip-making involves hundreds of steps we compressed into six. The transistor counts, market shares and national figures are real and sourced below, checked 24 October 2026 - but industry numbers move fast, so treat them as a snapshot.</p>
+    </aside>
+  </section>
+
+  <!-- SOURCES -->
+  <section>
+    <h2>Sources and acknowledgement</h2>
+    <p>This site was inspired by the book <strong>半導體超圖解：寫給未來人才的科技必修課</strong> (by InfoVisual Research Institute, supervised by SEMI Japan, Chinese edition 漫遊者文化, May 2026, ISBN 9786264092173) and by <strong>半導體的未來</strong> (The Future of Semiconductors, 人人伽利略特刊2, 人人出版, Taiwan). Both are recommended for further reading. All text, activities and illustrations here are original creations for this site; nothing from either book's artwork or text is reproduced.</p>
+    <ul class="sources">
+      <li>Singapore EDB - Singapore's share of world chips and chip equipment: <a href="https://www.edb.gov.sg/en/our-industries/advanced-manufacturing.html">edb.gov.sg/en/our-industries/advanced-manufacturing.html</a></li>
+      <li>ASML - EUV lithography, 13.5 nm wavelength, sole supplier: <a href="https://www.asml.com/en/products/euv-lithography-systems">asml.com/en/products/euv-lithography-systems</a></li>
+      <li>TrendForce, Sep 2026 - TSMC about 72.5% of foundry revenue, Q2 2026: trendforce.com</li>
+      <li>Computer History Museum - history of the transistor and integrated circuit: computerhistory.org</li>
+      <li>SEMI and DHL, Resilience of the Semiconductor Supply Chain - 1,000+ steps, 70+ border crossings per chip</li>
+      <li>WTO Global Value Chains report 2025 (citing IBE 2024) - chips per car: 600-700 petrol, 1,600-3,000 electric</li>
+      <li>Reuters, Oct 2026 - Japan's Rapidus 2 nm programme: about US$15 billion of government support, mass production targeted for the second half of 2027</li>
+    </ul>
+    <hr>
+    <p>Built as a learning resource for secondary-school technology literacy - bridging Computing, Physics and Economics. Share it freely with your class.</p>
+  </section>
+
+  <footer class="closing">Interactive learning site &middot; facts checked 24 Oct 2026 &middot; nothing here is collected, tracked or sent anywhere.</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
