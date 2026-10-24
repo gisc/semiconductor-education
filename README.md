@@ -16,15 +16,22 @@ A single-page, dependency-free website (plain HTML, CSS and JavaScript) that tel
 6. **The chip chessboard** - a chip's passport across the global supply chain, including Singapore's role and Japan's Rapidus bet.
 7. **Checkpoint quiz** - five misconception-first questions with explanations.
 
+## Adventure mode: Mira and the Great Dimming
+
+A companion storybook quest at [`quest.html`](quest.html) ([live](https://gisc.github.io/semiconductor-education/quest.html)) - same science, wrapped in an illustrated adventure. Mira, a young girl in a world whose light has dimmed, travels through six realms (a sleeping city, doping caves, the Gate Garden, the Sky Fab, the Race of Minds, and the woven world) waking lamps and earning sparks to bring back the dawn. Fully illustrated with original storybook art throughout, with the same hands-on activities woven into the story.
+
 ## Using it in class
 
 Open the live site on any phone or laptop - no installs, accounts or tracking. Discussion prompts are at the end of the page. Everything runs locally in the browser.
 
 ## Files
 
-- `index.html` - all content and structure
-- `style.css` - all styling
-- `app.js` - all interactions
+- `index.html` - main site content and structure
+- `style.css` - main site styling
+- `app.js` - main site interactions
+- `quest.html` - adventure-mode storybook content and structure
+- `quest.css` - adventure-mode styling (imports the shared palette)
+- `quest.js` - adventure-mode interactions
 
 ## Sources and acknowledgement
 
