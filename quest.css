@@ -224,3 +224,6 @@ a { color: var(--teal-dark); }
 .discussion li, ol.discussion { font-size: 14.5px; line-height: 1.6; }
 ol.discussion { padding-left: 22px; }
 ol.discussion li { margin-bottom: 8px; }
+
+/* Hero character art */
+.hero-mira { width: 100%; height: auto; display: block; border-radius: 16px; margin: 10px 0 14px; }
