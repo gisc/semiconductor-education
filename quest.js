@@ -8,22 +8,34 @@ function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.cl
 
 function miraG(x, y, sc, wave) {
     return '<g transform="translate(' + x + ',' + y + ') scale(' + sc + ')">' +
-        '<path d="M-15 42 Q-17 12 0 10 Q17 12 15 42 Z" fill="#e2543e"/>' +
-        '<rect x="-9" y="42" width="6" height="11" rx="3" fill="#ffe3c7"/>' +
-        '<rect x="3" y="42" width="6" height="11" rx="3" fill="#ffe3c7"/>' +
-        '<ellipse cx="-6" cy="54" rx="5.5" ry="3.2" fill="#5a4632"/>' +
-        '<ellipse cx="6" cy="54" rx="5.5" ry="3.2" fill="#5a4632"/>' +
+        '<path d="M-12 44 Q-13 16 -8 12 L8 12 Q13 16 12 44 Q0 47 -12 44 Z" fill="#d84f36"/>' +
+        '<circle cx="-9" cy="14" r="4.6" fill="#f3e7d3"/><circle cx="9" cy="14" r="4.6" fill="#f3e7d3"/>' +
+        '<path d="M-5 11 Q0 14 5 11 L5 9 Q0 12 -5 9 Z" fill="#f3e7d3"/>' +
+        '<rect x="-7.5" y="44" width="5" height="9.5" rx="2.4" fill="#3a3f4a"/>' +
+        '<rect x="2.5" y="44" width="5" height="9.5" rx="2.4" fill="#3a3f4a"/>' +
+        '<ellipse cx="-5" cy="54.5" rx="4.8" ry="2.6" fill="#5a4632"/>' +
+        '<ellipse cx="5" cy="54.5" rx="4.8" ry="2.6" fill="#5a4632"/>' +
         (wave
-            ? '<path d="M14 16 Q24 6 26 -6" stroke="#ffe3c7" stroke-width="5" stroke-linecap="round" fill="none"/>'
-            : '<path d="M14 16 Q20 24 16 32" stroke="#ffe3c7" stroke-width="5" stroke-linecap="round" fill="none"/>') +
-        '<path d="M-14 16 Q-20 24 -16 32" stroke="#ffe3c7" stroke-width="5" stroke-linecap="round" fill="none"/>' +
-        '<circle cx="0" cy="0" r="14" fill="#ffe3c7"/>' +
-        '<path d="M-14 -1 Q-16 -17 0 -17 Q16 -17 14 -1 Q13 3 11 3 Q12 -7 0 -7 Q-12 -7 -11 3 Q-13 3 -14 -1 Z" fill="#3a2c22"/>' +
-        '<circle cx="-16" cy="-12" r="4" fill="#3a2c22"/><circle cx="16" cy="-12" r="4" fill="#3a2c22"/>' +
-        '<circle cx="-5" cy="0.5" r="2" fill="#251f21"/><circle cx="5" cy="0.5" r="2" fill="#251f21"/>' +
-        '<circle cx="-4.4" cy="-0.2" r="0.6" fill="#fff"/><circle cx="5.6" cy="-0.2" r="0.6" fill="#fff"/>' +
-        '<circle cx="-8.5" cy="4.5" r="2.6" fill="#f4a988" opacity="0.75"/><circle cx="8.5" cy="4.5" r="2.6" fill="#f4a988" opacity="0.75"/>' +
-        '<path d="M-3 5.5 Q0 8.5 3 5.5" stroke="#b25b41" stroke-width="1.4" fill="none" stroke-linecap="round"/>' +
+            ? '<path d="M10 16 Q20 8 22 -4" stroke="#f6cfae" stroke-width="4.6" stroke-linecap="round" fill="none"/>'
+            : '<path d="M10 16 Q16 26 13 33" stroke="#f6cfae" stroke-width="4.6" stroke-linecap="round" fill="none"/>') +
+        '<path d="M-10 16 Q-16 26 -13 33" stroke="#f6cfae" stroke-width="4.6" stroke-linecap="round" fill="none"/>' +
+        '<rect x="-2.6" y="4" width="5.2" height="7" rx="2.4" fill="#f6cfae"/>' +
+        '<ellipse cx="0" cy="-3" rx="10.5" ry="12" fill="#f6cfae"/>' +
+        '<path d="M-10.5 -5 Q-11 -17 0 -17 Q11 -17 10.5 -5 Q9 -9 6.5 -9.5 Q8 -13 0 -13 Q-8 -13 -6.5 -9.5 Q-9 -9 -10.5 -5 Z" fill="#241d18"/>' +
+        '<circle cx="-11.5" cy="-11" r="4.4" fill="#241d18"/>' +
+        '<circle cx="11.5" cy="-11" r="4.4" fill="#241d18"/>' +
+        '<path d="M-10.5 -4 Q-12 0 -10.5 2" stroke="#241d18" stroke-width="1.6" fill="none" stroke-linecap="round"/>' +
+        '<path d="M10.5 -4 Q12 0 10.5 2" stroke="#241d18" stroke-width="1.6" fill="none" stroke-linecap="round"/>' +
+        '<path d="M-7.6 -3 Q-4.8 -5.4 -2 -3 Q-4.8 -1.2 -7.6 -3 Z" fill="#251f21"/>' +
+        '<path d="M2 -3 Q4.8 -5.4 7.6 -3 Q4.8 -1.2 2 -3 Z" fill="#251f21"/>' +
+        '<circle cx="-4.4" cy="-3.4" r="0.7" fill="#fff"/>' +
+        '<circle cx="5.2" cy="-3.4" r="0.7" fill="#fff"/>' +
+        '<path d="M-7.4 -6.4 Q-4.8 -7.6 -2.2 -6.6" stroke="#3a2c22" stroke-width="1" fill="none" stroke-linecap="round"/>' +
+        '<path d="M2.2 -6.6 Q4.8 -7.6 7.4 -6.4" stroke="#3a2c22" stroke-width="1" fill="none" stroke-linecap="round"/>' +
+        '<path d="M0 -0.6 Q0.8 0.6 0 1.4" stroke="#dfa173" stroke-width="0.9" fill="none" stroke-linecap="round"/>' +
+        '<path d="M-2.6 3 Q0 5.4 2.6 3" stroke="#b25b41" stroke-width="1.2" fill="none" stroke-linecap="round"/>' +
+        '<ellipse cx="-6.8" cy="1.6" rx="2.2" ry="1.4" fill="#ef9d7c" opacity="0.6"/>' +
+        '<ellipse cx="6.8" cy="1.6" rx="2.2" ry="1.4" fill="#ef9d7c" opacity="0.6"/>' +
         '</g>';
 }
 
