@@ -177,6 +177,7 @@ a { color: var(--teal-dark); }
 .mode-switch a { color: #3d6e5f; text-decoration: none; border-bottom: 1px solid #bcd6cc; }
 
 .scene svg { width: 100%; height: auto; display: block; border-radius: 16px; margin: 8px 0 12px; }
+.scene-img { width: 100%; height: auto; display: block; border-radius: 16px; margin: 8px 0 12px; box-shadow: 0 6px 24px rgba(10, 12, 30, 0.35); }
 
 /* Spark progress */
 .quest-sparks { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
@@ -199,6 +200,7 @@ a { color: var(--teal-dark); }
 .story em { color: #251f21; }
 .quest-realm h3 { font-size: 16px; margin: 18px 0 6px; }
 .quest-realm .scene svg { margin-top: 2px; }
+.quest-realm .scene-img { margin-top: 2px; }
 
 /* Spark earned banner */
 @keyframes questGlow { 0% { box-shadow: 0 0 0 0 rgba(232,193,112,0.9); } 100% { box-shadow: 0 0 0 14px rgba(232,193,112,0); } }
