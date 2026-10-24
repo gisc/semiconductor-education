@@ -1,0 +1,226 @@
+/* The Thinking Sand - styles (standalone, no dependencies) */
+:root {
+  --ink: #251f21;
+  --ink2: #585254;
+  --ink4: #c0bebf;
+  --hairline: #eae9ea;
+  --sand: #f4efec;
+  --teal: #73a89a;
+  --teal-dark: #3d6e5f;
+  --red: #ed313e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.card {
+  max-width: 720px;
+  margin: 24px auto;
+  background: #fff;
+  border-radius: 24px;
+  padding: 28px 22px 36px;
+  box-shadow: 0 4px 24px rgba(37, 31, 33, 0.08);
+}
+h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.02em; }
+h1 { font-size: 32px; margin: 4px 0 6px; }
+h2 { font-size: 23px; margin: 40px 0 12px; border-top: 1px solid var(--hairline); padding-top: 28px; }
+section:first-of-type h2 { border-top: none; }
+h3 { font-size: 16px; margin: 22px 0 2px; }
+.sub { color: var(--ink2); font-size: 13.5px; margin: 0 0 10px; }
+p { margin: 10px 0; }
+.hero-fact { color: var(--ink2); font-size: 14.5px; margin: 0 0 14px; }
+.intro { font-size: 17px; }
+.keysentence { border-left: 3px solid var(--teal); padding-left: 14px; font-weight: 600; font-size: 17px; }
+hr { border: none; border-top: 1px solid var(--hairline); margin: 24px 0; }
+a { color: var(--teal-dark); }
+.callout { border-radius: 12px; padding: 14px 16px; margin: 16px 0; font-size: 14.5px; }
+.callout p { margin: 4px 0 0; }
+.callout.note { background: #fbf9f7; border-left: 3px solid var(--teal); }
+.callout.warning { background: var(--sand); }
+.closing { color: var(--ink2); font-size: 13px; margin-top: 32px; text-align: center; }
+.sources { font-size: 14px; color: var(--ink2); padding-left: 20px; }
+.sources li { margin-bottom: 8px; word-wrap: break-word; }
+.discuss li { margin-bottom: 10px; }
+
+/* Hero artwork */
+.heroart { margin: 16px 0 8px; }
+.heroart svg { width: 100%; height: auto; display: block; background: linear-gradient(160deg, #fbf6ee 0%, #f2f7f5 60%, #eef3fa 100%); border-radius: 16px; }
+@keyframes sparkPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.spark { animation: sparkPulse 2.2s ease-in-out infinite; }
+
+/* Chapter nav */
+.index { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+.index button { border: 1px solid var(--hairline); border-radius: 999px; padding: 8px 14px; font-size: 13px; cursor: pointer; min-height: 36px; color: var(--ink); }
+.index button:nth-child(1) { background: #eef4f1; }
+.index button:nth-child(2) { background: #fdf3e7; }
+.index button:nth-child(3) { background: #eaf2fb; }
+.index button:nth-child(4) { background: #f3eef9; }
+.index button:nth-child(5) { background: #fef6e0; }
+.index button:nth-child(6) { background: #fdeef0; }
+.index button:nth-child(7) { background: #edf7f3; }
+.index button:active { filter: brightness(0.95); }
+
+/* Chip hunt + family */
+.huntgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 8px 0; }
+@media (min-width: 640px) { .huntgrid { grid-template-columns: repeat(3, 1fr); } }
+.hunt { border: 1px solid var(--hairline); border-radius: 14px; background: #fbf9f7; padding: 14px 12px; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 6px; min-height: 96px; font-size: 14px; color: var(--ink); }
+.hunt.found { background: #eef4f1; border-color: #bcd6cc; }
+.hunt .emoji { font-size: 28px; line-height: 1; }
+.hunt .name { font-weight: 600; font-size: 14px; }
+.hunt .fact { font-size: 12.5px; line-height: 1.45; color: var(--ink2); }
+.hunt .tap { font-size: 12px; color: var(--ink4); }
+.score { margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--teal-dark); }
+
+/* Doping lab */
+.dopick { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.dopant { flex: 1; min-width: 130px; border-radius: 12px; border: 2px solid transparent; padding: 10px; font-size: 14px; font-weight: 600; cursor: pointer; background: #fbf9f7; color: var(--ink); }
+.dopant small { font-weight: 400; font-size: 12px; color: var(--ink2); }
+.dopant.n.picked { border-color: #6fa8dc; background: #eaf2fb; }
+.dopant.p.picked { border-color: #f6b26b; background: #fdf3e7; }
+.lattice { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+.atom { position: relative; aspect-ratio: 1; border-radius: 50%; border: 2px solid #cfd6da; background: #eef1f3; font-weight: 700; font-size: 15px; color: #585254; cursor: pointer; display: flex; align-items: center; justify-content: center; min-height: 56px; }
+.atom.doped-P { background: #6fa8dc; border-color: #4a86c8; color: #fff; }
+.atom.doped-B { background: #f6b26b; border-color: #e69138; color: #5a3a10; }
+.atom .badge { position: absolute; bottom: -6px; right: -4px; font-size: 10px; background: var(--ink); color: #fff; border-radius: 999px; padding: 1px 5px; font-style: normal; }
+.verdict { font-size: 13.5px; line-height: 1.5; color: var(--ink2); margin: 8px 0; }
+.mini { border: 1px solid var(--hairline); background: #fff; border-radius: 999px; padding: 8px 16px; font-size: 13px; cursor: pointer; min-height: 40px; color: var(--ink); }
+.mini:disabled { opacity: 0.4; cursor: default; }
+
+/* Diode + transistor */
+.art { width: 100%; height: auto; display: block; background: #fbf9f7; border-radius: 14px; }
+.bulbrow { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
+.bulb { font-size: 30px; }
+.bulb.on { filter: drop-shadow(0 0 10px #ffd966); }
+@keyframes flow { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(190px); opacity: 0; } }
+.flowdot { animation: flow 2.1s linear infinite; }
+@keyframes flowlong { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(100px); opacity: 0; } }
+.flowlong { animation: flowlong 1.8s linear infinite; }
+.big-toggle { width: 100%; margin-top: 10px; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 600; cursor: pointer; border: 2px solid var(--hairline); background: #fbf9f7; color: var(--ink); min-height: 48px; }
+.big-toggle.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+.big-toggle:disabled { opacity: 0.6; cursor: default; }
+
+/* Logic */
+.gatebtn { border: 1px solid var(--hairline); background: #fff; border-radius: 10px; padding: 10px 16px; font-weight: 700; font-size: 14px; cursor: pointer; min-height: 44px; color: var(--ink); }
+.gatebtn.picked { background: var(--ink); color: #fff; border-color: var(--ink); }
+.io { display: flex; align-items: center; gap: 10px; margin: 8px 0; flex-wrap: wrap; }
+.io-btn { border: 2px solid var(--hairline); border-radius: 10px; background: #fff; font-size: 15px; font-weight: 600; padding: 10px 18px; cursor: pointer; min-height: 44px; color: var(--ink); }
+.io-btn.on { background: #6fa8dc; border-color: #6fa8dc; color: #fff; }
+.arrow { font-size: 18px; color: var(--ink2); }
+.gatebox { border: 2px dashed #585254; border-radius: 10px; padding: 8px 16px; font-weight: 700; font-size: 14px; }
+.out { border-radius: 10px; padding: 10px 18px; font-weight: 700; font-size: 15px; background: var(--sand); color: var(--ink2); }
+.out.on { background: var(--teal); color: #fff; }
+.truth { margin-top: 10px; border-collapse: collapse; font-size: 13.5px; }
+.truth th, .truth td { border: 1px solid var(--hairline); padding: 6px 14px; text-align: center; }
+.truth tr.active td { background: #eef4f1; font-weight: 700; }
+.truth .one { color: var(--teal-dark); font-weight: 700; }
+
+/* Fab stepper */
+.stepline { margin: 12px 0 4px; font-size: 15px; font-weight: 700; }
+.stepbody { font-size: 14px; line-height: 1.55; color: var(--ink2); margin: 0 0 12px; }
+.stepnav { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--hairline); }
+.dots i.here { background: var(--teal); }
+
+/* Moore */
+.moore input[type=range] { width: 100%; margin: 12px 0; accent-color: var(--teal); height: 32px; }
+.moorecard { border: 1px solid var(--hairline); border-radius: 14px; padding: 16px; text-align: center; background: #fbf9f7; }
+.mooreyear { font-size: 26px; font-weight: 700; margin: 0; }
+.moorechip { font-size: 14px; color: var(--ink2); margin: 2px 0 12px; }
+.moorebar { height: 14px; border-radius: 999px; background: var(--hairline); overflow: hidden; }
+.moorebar span { display: block; height: 100%; background: linear-gradient(90deg, var(--teal), var(--teal-dark)); border-radius: 999px; transition: width 0.4s ease; }
+.moorecount { font-size: 15px; font-weight: 600; color: var(--teal-dark); margin: 10px 0 0; }
+
+/* Race */
+.racetask { font-size: 14px; color: var(--ink2); }
+.lanelabel { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink2); margin: 10px 0 4px; gap: 8px; flex-wrap: wrap; }
+.lanelabel span:last-child { white-space: nowrap; }
+.tiles { display: grid; grid-template-columns: repeat(16, 1fr); gap: 3px; }
+.tiles i { aspect-ratio: 1; border-radius: 3px; background: #f0eded; }
+.tiles i.cpu { background: #6fa8dc; }
+.tiles i.gpu { background: var(--teal); }
+
+/* Passport */
+.stamps { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.stamp { font-size: 24px; border-radius: 12px; border: 2px solid var(--hairline); background: #fff; padding: 8px 10px; cursor: pointer; min-height: 48px; min-width: 48px; }
+.stamp.here { border-color: var(--teal); background: #eef4f1; }
+.passcard { border: 1px solid var(--hairline); border-radius: 14px; padding: 14px 16px; background: #fbf9f7; }
+.passstage { font-weight: 700; font-size: 15px; margin: 0 0 6px; }
+.passbody { font-size: 14px; line-height: 1.55; color: var(--ink2); margin: 0; }
+
+/* Quiz */
+.q { margin-bottom: 18px; }
+.qq { font-size: 14.5px; margin: 0 0 8px; font-weight: 700; }
+.qopts { display: flex; flex-direction: column; gap: 8px; }
+.qopt { text-align: left; border: 1px solid var(--hairline); border-radius: 10px; background: #fff; padding: 12px 14px; font-size: 14px; cursor: pointer; min-height: 44px; color: var(--ink); }
+.qopt.right { background: #eef4f1; border-color: var(--teal); font-weight: 600; }
+.qopt.wrong { background: #fdecec; border-color: var(--red); }
+.qopt.muted { opacity: 0.55; }
+.qopt:disabled { cursor: default; }
+.qwhy { font-size: 13px; color: var(--ink2); margin: 8px 0 0; }
+.finalscore { font-size: 15px; font-weight: 700; color: var(--teal-dark); }
+
+@media (min-width: 768px) {
+  .card { padding: 36px 40px 44px; }
+  h1 { font-size: 38px; }
+}
+
+/* ============ Quest skin: Mira and the Great Dimming ============ */
+
+.anchor { display: block; position: relative; top: -12px; }
+.mode-switch { margin: 0 0 10px; font-size: 13px; }
+.mode-switch a { color: #3d6e5f; text-decoration: none; border-bottom: 1px solid #bcd6cc; }
+
+.scene svg { width: 100%; height: auto; display: block; border-radius: 16px; margin: 8px 0 12px; }
+
+/* Spark progress */
+.quest-sparks { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
+.quest-spark { display: flex; align-items: center; gap: 6px; border: 1px solid #eae9ea; border-radius: 999px; padding: 6px 12px; font-size: 12.5px; color: #c0bebf; background: #fff; min-height: 32px; }
+.quest-spark.lit { color: #7a5a12; background: #fef6e0; border-color: #e8c170; font-weight: 600; }
+.quest-spark .ico { font-size: 15px; }
+
+/* Realm cards */
+.quest-realm { border-radius: 16px; padding: 16px 16px 14px; margin: 0 0 14px; border: 1px solid #eae9ea; background: #fbf9f7; }
+.quest-kicker { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 4px; }
+.quest-title { font-size: 19px; font-weight: 700; margin: 0 0 8px; }
+.quest-r1 .quest-kicker { color: #3d6e5f; }
+.quest-r2 .quest-kicker { color: #b26a2e; }
+.quest-r3 .quest-kicker { color: #4a86c8; }
+.quest-r4 .quest-kicker { color: #7a5fa8; }
+.quest-r5 .quest-kicker { color: #b8860b; }
+.quest-r6 .quest-kicker { color: #c2546a; }
+.quest-fin .quest-kicker { color: #7a5a12; }
+.story { font-size: 14.5px; line-height: 1.6; color: #585254; margin: 0 0 10px; }
+.story em { color: #251f21; }
+.quest-realm h3 { font-size: 16px; margin: 18px 0 6px; }
+.quest-realm .scene svg { margin-top: 2px; }
+
+/* Spark earned banner */
+@keyframes questGlow { 0% { box-shadow: 0 0 0 0 rgba(232,193,112,0.9); } 100% { box-shadow: 0 0 0 14px rgba(232,193,112,0); } }
+.quest-earn { display: flex; gap: 10px; align-items: center; border-radius: 12px; padding: 10px 14px; margin-top: 12px; background: #fef6e0; border: 1px solid #e8c170; font-size: 14px; font-weight: 600; color: #7a5a12; animation: questGlow 1.2s ease-out 2; }
+.quest-earn[hidden] { display: none; }
+.quest-earn-ico { font-size: 20px; }
+
+/* Checklist */
+.quest-check { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; font-size: 12.5px; }
+.quest-check span { border-radius: 999px; padding: 4px 10px; border: 1px solid #eae9ea; color: #c0bebf; background: #fff; }
+.quest-check span.done { color: #3d6e5f; border-color: #bcd6cc; background: #eef4f1; font-weight: 600; }
+
+/* Finale lamps + dawn */
+.quest-lamps { display: flex; gap: 10px; justify-content: center; margin: 10px 0; }
+.quest-lamp { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; background: #f0eded; border: 2px solid #eae9ea; }
+.quest-lamp.lit { background: #fef6e0; border-color: #e8c170; filter: drop-shadow(0 0 8px #ffd966); }
+.quest-dawn { border-radius: 16px; padding: 18px; text-align: center; background: linear-gradient(160deg, #2b3a67 0%, #7a5fa8 55%, #e8a0bf 80%, #f7d154 100%); color: #fff; margin-top: 14px; }
+.quest-dawn[hidden] { display: none; }
+.quest-dawn h3 { margin: 0 0 6px; font-size: 20px; }
+.quest-dawn p { margin: 0; font-size: 14.5px; line-height: 1.55; }
+
+/* Discussion lists */
+.discussion li, ol.discussion { font-size: 14.5px; line-height: 1.6; }
+ol.discussion { padding-left: 22px; }
+ol.discussion li { margin-bottom: 8px; }
