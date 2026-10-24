@@ -169,3 +169,12 @@ a { color: var(--teal-dark); }
   .card { padding: 36px 40px 44px; }
   h1 { font-size: 38px; }
 }
+
+/* Adventure-mode banner linking to the companion quest */
+.adventure-banner { margin: 0 18px 18px; }
+.adventure-banner a {
+  display: block; text-align: center; padding: 12px 16px; border-radius: 12px;
+  background: #3d2b45; color: #ffd966; text-decoration: none; font-size: 15px; line-height: 1.45;
+  border: 1px solid #5a4465;
+}
+.adventure-banner a:hover, .adventure-banner a:focus { background: #4a3654; }
